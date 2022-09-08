@@ -15,9 +15,6 @@ class Garage(RepeatFields):
     number = models.CharField(max_length=150)
     
     
-
-
-
 class Properties(InactiveRepeatFields):
     name = models.CharField(max_length=150)
     price = models.CharField(max_length=150)
