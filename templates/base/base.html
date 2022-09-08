@@ -1,0 +1,325 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Konato</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/icon/favicon.png' %} ">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %} ">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+    <!--? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'assets/img/icon/loder.png' %} " alt="loder">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <div class="header-area">
+            <div class="main-header">
+                <div class="header-top header-sticky">
+                    <div class="container">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap position-relative">
+                            <!-- Logo -->
+                            <div class="left-side d-flex align-items-center">
+                                <div class="logo">
+                                    <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %} " alt=""></a>
+                                </div>
+                                <!-- Main-menu -->
+                                {% if user.user_type == 'CL'  %}
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">   
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            <li><a href="{% url 'property' %}">Property</a></li>
+                                            {% comment %} <li><a href="#">Agents</a> </li> {% endcomment %}
+                                            <li><a href="{% url 'about' %}">About</a></li>
+                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-right-btn f-right">
+                                <a href="#" class="header-btn2">Welcome <span>{{user.get_full_name}}</span></a>
+                                <a href="{% url 'logout' %}" class="btn_1">Logout</a>
+                            </div>
+
+                                {% elif user.user_type == 'AG'  %}
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">   
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            <li><a href="{% url 'property' %}">My Property</a></li>
+                                            <li><a href="{% url 'about' %}">Request List</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-right-btn f-right">
+                                <a href="#" class="header-btn2">Welcome: <span>{{user.get_full_name}}</span></a>
+                                <a href="{% url 'profile' %}" class="btn_1">Account</a>
+                                <a href="{% url 'logout' %}" class="btn_1">Logout</a>
+                            </div>
+
+                                {% else %}
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">   
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            <li><a href="{% url 'property' %}">Property</a></li>
+                                            <li><a href="#">Agents</a> </li>
+                                            <li><a href="{% url 'about' %}">About</a></li>
+                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-right-btn f-right">
+                                <a href="#" class="header-btn2">Call Us: <span>+10 (78) 356 3276</span></a>
+                                <a href="{% url 'loginform' %}" class="btn_1">Sign In</a>
+                            </div>
+                                {% endif %}
+                              
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xxl-8 col-xl-10 col-lg-11">
+                                <!-- form -->
+                                <form action="#" class="search-box">
+                                    <div class="input-form">
+                                        <input type="text" placeholder="Enter Keyword..">
+                                        <!-- icon -->
+                                        <div class="icon">
+                                            <i class="ti-search"></i>
+                                        </div>
+                                    </div>
+                                    <div class="select-form">
+                                        <div class="select-itms">
+                                            <select name="select" id="select1">
+                                                <option value="">Rent</option>
+                                                <option value="">Rent 1</option>
+                                                <option value="">Rent 2</option>
+                                                <option value="">Rent 3</option>
+                                                <option value="">Rent 4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="select-form select-form2">
+                                        <div class="select-itms">
+                                            <select name="select" id="select2">
+                                                <option value="">Bed</option>
+                                                <option value="">Bed 1</option>
+                                                <option value="">Bed 2</option>
+                                                <option value="">Bed 3</option>
+                                                <option value="">Bed 4</option>
+                                            </select>
+                                            <div class="select-items">
+                                                <img src="{% static 'assets/img/icon/bed.svg' %} " alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="select-form select-form2">
+                                        <div class="select-itms">
+                                            <select name="select" id="select3">
+                                                <option value="">Bath</option>
+                                                <option value="">Bath 1</option>
+                                                <option value="">Bath 2</option>
+                                                <option value="">Bath 3</option>
+                                                <option value="">Bath 4</option>
+                                            </select>
+                                        </div>
+                                        <div class="select-items">
+                                            <img src="{% static 'assets/img/icon/bath.svg' %} " alt="">
+                                        </div>
+                                    </div>
+                                    <div class="search-form">
+                                        <button>Search</button>
+                                    </div>		
+                                </form>	
+                                <!-- End Form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block 'content' %}
+    
+    {% endblock 'content' %}
+
+    <footer>
+        <div class="footer-wrapper">
+            <!-- Footer Start-->
+            <div class="footer-area footer-padding">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <!-- logo -->
+                                    <div class="footer-logo mb-35">
+                                        <a href="{% url 'home' %}"><img src="{% static 'assets/img/logo/logo2_footer.png' %} " alt=""></a>
+                                    </div>
+                                    <div class="footer-tittle">
+                                        <div class="footer-pera">
+                                            <p>Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum</p>
+                                        </div>
+                                        <!-- social -->
+                                        <ul class="footer-social">    
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="https://bit.ly/sai4ull"><i class="fab fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                            <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Navigation</h4>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Services</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Services</h4>
+                                    <ul>
+                                        <li><a href="#">Drone Mapping</a></li>
+                                        <li><a href="#"> Real State</a></li>
+                                        <li><a href="#">Commercial</a></li>
+                                        <li><a href="#">Construction</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Support</h4>
+                                    <ul>
+                                        <li><a href="#">Drone Mapping</a></li>
+                                        <li><a href="#"> Real State</a></li>
+                                        <li><a href="#">Commercial</a></li>
+                                        <li><a href="#">Construction</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle mb-50">
+                                    <h4>Contact Us</h4>
+                                    <ul>
+                                        <li><a href="#">Drone Mapping</a></li>
+                                        <li class="number2"><a href="#">contact@carwash.com</a></li>
+                                        <li class="number"><a href="#">10 (87) 738-3940</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                                    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="nofollow noopener">Colorlib</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End-->
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a class="wrapper" title="Go to Top" href="#">
+            <div class="arrows-container">
+                <div class="arrow arrow-one">
+                </div>
+                <div class="arrow arrow-two">
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %} "></script>
+    <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %} "></script>
+    <script src="{% static 'assets/js/popper.min.js' %} "></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %} "></script>
+    
+    <!-- Slick-slider , Owl-Carousel ,slick-nav -->
+    <script src="{% static 'assets/js/owl.carousel.min.js' %} "></script>
+    <script src="{% static 'assets/js/slick.min.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.slicknav.min.js' %} "></script>
+    
+    <!--wow , counter , waypoint, Nice-select -->
+    <script src="{% static 'assets/js/wow.min.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.counterup.min.js' %} "></script>
+    <script src="{% static 'assets/js/waypoints.min.js' %} "></script>
+    
+    <!-- contact js -->
+    <script src="{% static 'assets/js/contact.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.form.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.validate.min.js' %} "></script>
+    <script src="{% static 'assets/js/mail-script.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %} "></script>
+    
+    <!--  Plugins, main-Jquery -->	
+    <script src="{% static 'assets/js/plugins.js' %} "></script>
+    <script src="{% static 'assets/js/main.js' %} "></script>
+
+    
+    </body>
+</html>

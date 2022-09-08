@@ -26,15 +26,14 @@ Models[]
 
 Front[x]
 
-Navagition bar as Client: Home , Properties , Agents , About Us , Contact , Account , logout , View Properties 
+Navagition bar as Client: Home , Properties , Agents , About , Contact , Account , logout , View Properties 
 
 Navagition bar as Agents: Home , My Properties,  Request List , Add Properties , Logout
 --------------------
 
 Banner 
-    video
-    title 
-    description
+    property.objects.first() in order to collect the first property existing in the database
+    
 
 Newsletter_Section
     title

@@ -1,0 +1,77 @@
+{% extends 'base/baselog.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block 'content' %}
+
+    <main class="login-bg">
+        <!-- Register Area Start -->
+        <div class="register-form-area">
+            <div class="register-form text-center">
+                <!-- Login Heading -->
+                <div class="register-heading">
+                    <span>Sign Up</span>
+                    <p>Create your account</p>
+                </div>
+
+                <!-- Single Input Fields -->
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-box">
+
+                    <div class="single-input-fields">
+                        <label>First Name</label>
+                        {% render_field form.first_name class="mt-4 form-control" placeholder=form.first_name.label %}
+                    </div>
+                    
+                    <div class="single-input-fields">
+                        <label>Last Name</label>
+                        {% render_field form.last_name class="mt-4 form-control" placeholder=form.last_name.label %}
+                    </div>
+
+                    <div class="single-input-fields">
+                        <label>Username</label>
+                        {% render_field form.username class="mt-4 form-control" placeholder='Enter Username' %}
+                    </div>
+
+                    <div class="single-input-fields">
+                        <label>Email Address</label>
+                        {% render_field form.email class="mt-4 form-control" placeholder='Enter Email Address' %}
+                    </div>
+
+                    <div class="single-input-fields">
+                        <label>Password</label>
+                        {% render_field form.password1 class="mt-4 form-control" placeholder='Enter Password' %}
+                    </div>
+
+                    <div class="single-input-fields">
+                        <label>Confirm Password</label>
+                        {% render_field form.password2 class="mt-4 form-control" placeholder='Enter Confirm Password' %}
+                    </div>
+
+                    <div class="single-input-fields">
+                        <label>Register as</label>
+                        {% render_field form.user_type class="mt-4 form-control" %}
+                    </div>
+
+                </div>
+
+                <br><br><br>
+                <div class="register-footer">
+                    <p> Already have an account? <a href="{% url 'loginform' %}"> Login</a> here</p>
+                    <button type="submit" class="submit-btn3">Sign Up</button>
+                </div>  
+            </form>
+                <!-- form Footer -->
+            
+          
+            </div>
+        </div>
+        <!-- Register Area End -->
+    </main>
+
+    {% endblock 'content' %}
+
+   

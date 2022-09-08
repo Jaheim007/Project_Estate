@@ -1,0 +1,154 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Konato</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/icon/favicon.png' %} ">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/css/profile.css' %} ">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <!--? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'assets/img/icon/loder.png' %} " alt="loder">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <div class="header-area">
+            <div class="main-header">
+                <div class="header-top header-sticky">
+                    <div class="container">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap position-relative">
+                            <!-- Logo -->
+                            <div class="left-side d-flex align-items-center">
+                                <div class="logo">
+                                    <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %} " alt=""></a>
+                                </div>
+                                <!-- Main-menu -->
+                                {% if user.user_type == 'CL'  %}
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">   
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            <li><a href="{% url 'property' %}">Property</a></li>
+                                            {% comment %} <li><a href="#">Agents</a> </li> {% endcomment %}
+                                            <li><a href="{% url 'about' %}">About</a></li>
+                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-right-btn f-right">
+                                <a href="#" class="header-btn2">Welcome <span>{{user.get_full_name}}</span></a>
+                                <a href="{% url 'logout' %}" class="btn_1">Logout</a>
+                            </div>
+
+                                {% elif user.user_type == 'AG'  %}
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">   
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            <li><a href="{% url 'property' %}">My Property</a></li>
+                                            <li><a href="{% url 'about' %}">Request List</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-right-btn f-right">
+                                <a href="#" class="header-btn2">Welcome: <span>{{user.get_full_name}}</span></a>
+                                <a href="{% url 'profile' %}" class="btn_1">Account</a>
+                                <a href="{% url 'logout' %}" class="btn_1">Logout</a>
+                            </div>
+
+                                {% else %}
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">   
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            <li><a href="{% url 'property' %}">Property</a></li>
+                                            <li><a href="#">Agents</a> </li>
+                                            <li><a href="{% url 'about' %}">About</a></li>
+                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header-right-btn f-right">
+                                <a href="#" class="header-btn2">Call Us: <span>+10 (78) 356 3276</span></a>
+                                <a href="{% url 'loginform' %}" class="btn_1">Sign In</a>
+                            </div>
+                            {% endif %}
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    {% block 'content' %}
+    
+    {% endblock 'content' %}
+
+     <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %} "></script>
+    <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %} "></script>
+    <script src="{% static 'assets/js/popper.min.js' %} "></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %} "></script>
+    
+    <!-- Slick-slider , Owl-Carousel ,slick-nav -->
+    <script src="{% static 'assets/js/owl.carousel.min.js' %} "></script>
+    <script src="{% static 'assets/js/slick.min.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.slicknav.min.js' %} "></script>
+    
+    <!--wow , counter , waypoint, Nice-select -->
+    <script src="{% static 'assets/js/wow.min.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.counterup.min.js' %} "></script>
+    <script src="{% static 'assets/js/waypoints.min.js' %} "></script>
+    
+    <!-- contact js -->
+    <script src="{% static 'assets/js/contact.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.form.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.validate.min.js' %} "></script>
+    <script src="{% static 'assets/js/mail-script.js' %} "></script>
+    <script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %} "></script>
+    
+    <!--  Plugins, main-Jquery -->	
+    <script src="{% static 'assets/js/plugins.js' %} "></script>
+    <script src="{% static 'assets/js/main.js' %} "></script>
+
+
+</body>
+</html>
