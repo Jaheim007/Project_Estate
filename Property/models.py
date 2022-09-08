@@ -15,14 +15,11 @@ class Garage(RepeatFields):
     number = models.CharField(max_length=150)
     
     
-
-
-
 class Properties(InactiveRepeatFields):
     name = models.CharField(max_length=150)
     price = models.CharField(max_length=150)
-    city = models.ForeignKey(City, on_delete=models.SET_NULL , related_name='properties_city')
-    country = models.ForeignKey(Country, on_delete=models.SET_NULL , related_name='properties_country')
+    city = models.ForeignKey(City, on_delete=models.SET_NULL , null=True, related_name='properties_city')
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL ,null=True, related_name='properties_country')
     image = models.ImageField( upload_to='Property_images')
     
     
