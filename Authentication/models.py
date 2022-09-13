@@ -15,8 +15,15 @@ class RepeatFields(models.Model):
 class Country(RepeatFields): 
     name = models.CharField(max_length=150)
     
-class City(RepeatFields):
-    name = models.CharField(max_length=150)
+    def __str__(self):
+        return self.name
+    
+class Cities(RepeatFields):
+    city = models.CharField(max_length=150)
+    countries = models.ForeignKey(Country , on_delete=models.SET_NULL, null= True , related_name="city_country")
+    
+    def __str__(self):
+        return self.city
 
 class User(AbstractUser, InactiveRepeatFields): 
     AGENT = 'AG'
@@ -29,7 +36,7 @@ class User(AbstractUser, InactiveRepeatFields):
 
     image = models.ImageField(upload_to='User__Images', blank=True)
     phone_number = PhoneNumberField()
-    city = models.ForeignKey(City , on_delete=models.SET_NULL ,null=True , related_name="user_city")
+    city = models.ForeignKey(Cities , on_delete=models.SET_NULL ,null=True , related_name="user_city")
     country = models.ForeignKey(Country , on_delete=models.SET_NULL ,null=True , related_name="user_country")
     description = models.TextField()
     occupation = models.CharField(max_length=150)

@@ -1,0 +1,58 @@
+{% extends 'base/baselog.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block 'content' %}
+
+    <main class="login-bg">
+        <!-- Register Area Start -->
+        <div class="register-form-area">
+            <div class="register-form text-center">
+                <!-- Login Heading -->
+                <div class="register-heading">
+                    <span>Property</span>
+                    <p>Submit Your Property</p>
+                </div>
+
+                <!-- Single Input Fields -->
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-box">
+
+                    <div class="single-input-fields">
+                        <label>Name</label>
+                        {% render_field form.name class="mt-4 form-control" placeholder=form.first_name.label %}
+                    </div>
+                    
+                    <div class="single-input-fields">
+                        <label>Price</label>
+                        {% render_field form.price class="mt-4 form-control" placeholder=form.last_name.label %}
+                    </div>
+
+                    <div class="single-input-fields">
+                        <label>country</label>
+                        {% render_field form.country class="mt-4 form-control" placeholder='Enter Username' %}
+                    </div>
+
+                    <div class="single-input-fields">
+                        <label>city</label>
+                        {% render_field form.city class="mt-4 form-control" placeholder='Enter Email Address' %}
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div class="register-footer">
+                    <button type="submit" class="submit-btn3">Sumbit</button>
+                </div>  
+            </form>
+                <!-- form Footer -->
+            
+          
+            </div>
+        </div>
+        <!-- Register Area End -->
+    </main>
+
+    {% endblock 'content' %}

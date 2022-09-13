@@ -3,6 +3,8 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth import get_user_model
 
+from Property import models
+
 class NewUserForm(UserCreationForm): 
     email = forms.EmailField()
     
@@ -36,6 +38,26 @@ class UpdateProfile(ModelForm):
             "city",
             "occupation", 
             "phone_number",
+        ]
+    
+class AddProperty(ModelForm):
+    
+    class Meta:
+        model = models.Properties
+        fields = [
+            "name" ,
+            "price" ,
+            "status" ,
+            "property_type" ,
+            "city" ,
+            "country", 
+            "address", 
+            "garage" ,
+            "bathrooms", 
+            "bedrooms", 
+            "image", 
+            "additional_images" 
+    
         ]
     
 

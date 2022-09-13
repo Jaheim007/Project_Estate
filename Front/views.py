@@ -2,7 +2,8 @@ from django.shortcuts import render , redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login, authenticate, logout
 
-from Authentication.forms import NewUserForm , LoginForm , UpdateProfile
+from Authentication import models
+from Authentication.forms import NewUserForm , LoginForm , UpdateProfile , AddProperty
 
 def home(request):
     return render(request, "pages/index.html" , locals())
@@ -71,6 +72,7 @@ def profile(request):
 def edit_profile(request):
     
     form = UpdateProfile(instance=request.user)
+   
     
     return render(request ,  "pages/edit_profile.html" , locals())
     
@@ -78,6 +80,14 @@ def edit_profile(request):
 
 def about(request):
     return render(request , 'pages/about.html' , locals())
+
+def add_property(request):
+    
+    form = AddProperty
+ 
+    
+    return render(request , 'pages/add_property.html' , locals())
+    
 
 
 
