@@ -16,9 +16,6 @@ def contact(request):
 def about(request):
     return render(request , "pages/about.html" , locals())
 
-def element(request):
-    return render(request , "pages/elements.html" , locals())
-
 def loginform(request):
     form = LoginForm(request.POST)
     if form.is_valid():     
@@ -73,11 +70,12 @@ def edit_profile(request):
     form = UpdateProfile(instance=request.user)
     
     return render(request ,  "pages/edit_profile.html" , locals())
-    
-
 
 def about(request):
     return render(request , 'pages/about.html' , locals())
+
+def dashboard(request): 
+    return render(request , "pages/dashboard.html" , locals())
 
 
 

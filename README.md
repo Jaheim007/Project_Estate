@@ -1,3 +1,17 @@
+Real Estate(Function)
+---------------------
+
+This real estate project will consist of an interaction where:
+
+A client can purchase a property.[]
+
+A client can add a property to sale.[]
+
+Agents can register to our site in order to help clients with any informations on the property.[]
+
+I have to add a payment system for when a client want to purchase a property.[]
+
+
 Applications[]
 ****************
 
@@ -26,10 +40,13 @@ Models[]
 
 Front[x]
 
+Navagition bar as Anonymous: Home , Property , Agents , About , Contact  , Signin  , login 
+
 Navagition bar as Client: Home , Properties , Agents , About , Contact , Account , logout , View Properties 
 
 Navagition bar as Agents: Home , My Properties,  Request List , Add Properties , Logout
 --------------------
+
 
 Banner 
     property.objects.first() in order to collect the first property existing in the database
