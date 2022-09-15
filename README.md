@@ -3,11 +3,11 @@ Real Estate(Function)
 
 This real estate project will consist of an interaction where:
 
-A client can purchase a property.[]
+A seller can sell a property.
 
-A client can add a property to sale.[]
+A user can search for a property to buy.
 
-Agents can register to our site in order to help clients with any informations on the property.[]
+
 
 I have to add a payment system for when a client want to purchase a property.[]
 

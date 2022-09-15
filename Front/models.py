@@ -2,6 +2,8 @@ from django.db import models
 
 from Authentication.models import RepeatFields
 
+""" 
+"""
 class Banner(RepeatFields): 
     video = models.URLField()
     title = models.CharField(max_length=150)

@@ -2,7 +2,8 @@ from django.shortcuts import render , redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login, authenticate, logout
 
-from Authentication.forms import NewUserForm , LoginForm , UpdateProfile
+from Authentication.forms import NewUserForm , LoginForm , UpdateProfile , AddProperty
+from Property.models import Properties
 
 def home(request):
     return render(request, "pages/index.html" , locals())
@@ -52,7 +53,6 @@ def register(request):
                 username = username, 
                 email = email, 
                 password = password1, 
-                user_type = user_type 
         )
         
         user.save()
@@ -78,6 +78,30 @@ def edit_profile(request):
 
 def about(request):
     return render(request , 'pages/about.html' , locals())
+
+def add_property(request):
+    form = AddProperty(request.POST)
+    if request.method =='POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        user = request.POST.get("user")
+        
+        property = Properties(
+            name = name, 
+            price = price, 
+        )
+        
+        # property.user = request.user
+        property.save()
+    
+    return render(request , "pages/add_property.html" , locals())
+
+def submit_property(request):
+
+            
+    return render(request, 'pages/add_property.html', locals())
+
+
 
 
 

@@ -9,5 +9,10 @@ class User(admin.ModelAdmin):
         "last_name", 
         "username", 
         "email",
-        "user_type" 
+        "image" , 
+        "phone_number" , 
+        "facebook",
+        "instagram",
+        "twitter",
+        "linkedin", 
     )
