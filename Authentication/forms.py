@@ -49,7 +49,8 @@ class AddProperty(ModelForm):
             'garage',
             'country',
             'address_name',
-            'main_image'
+            'main_image', 
+            'users'
         ]
 
     

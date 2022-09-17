@@ -74,32 +74,33 @@ def edit_profile(request):
     
     return render(request ,  "pages/edit_profile.html" , locals())
     
-
-
+    
 def about(request):
     return render(request , 'pages/about.html' , locals())
 
+
+
 def add_property(request):
-    form = AddProperty(request.POST)
+    form = AddProperty
     if request.method =='POST':
         name = request.POST.get("name")
         price = request.POST.get("price")
-        user = request.POST.get("user")
+        users = request.user
         
+        print(request.user)
+         
         property = Properties(
             name = name, 
-            price = price, 
+            price = price,
+            users = users
         )
         
-        # property.user = request.user
         property.save()
     
     return render(request , "pages/add_property.html" , locals())
 
-def submit_property(request):
-
-            
-    return render(request, 'pages/add_property.html', locals())
+# def submit_property(request):    
+#     return render(request, 'pages/add_property.html', locals())
 
 
 

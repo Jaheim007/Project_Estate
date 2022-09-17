@@ -43,5 +43,5 @@ class Properties(admin.ModelAdmin):
         'country',
         'address_name',
         'main_image',
-        'user'
+        'users'
     )

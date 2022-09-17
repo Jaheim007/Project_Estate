@@ -6,6 +6,7 @@
 
 {% block 'content' %}
 
+{% if user.is_authenticated %}
     <main class="login-bg">
         <!-- login Area Start -->
         <div class="login-form-area">
@@ -27,6 +28,10 @@
                         <label>Price</label>
                         {% render_field form.price class="mt-4 form-control" placeholder="CFA" %}
                     </div>                    
+                    <div class="single-input-fields">
+                        <label>User</label>
+                        {% render_field form.users class="mt-4 form-control" placeholder="ID" %}
+                    </div>                    
                 </div>
                 <!-- form Footer -->
                 <br><br>
@@ -38,5 +43,6 @@
         </div>
         <!-- login Area End -->
     </main>
+    {% endif %}
 
 {% endblock 'content' %}
