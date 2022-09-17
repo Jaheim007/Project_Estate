@@ -1,3 +1,13 @@
 from django.shortcuts import render
+from django.views.generic import View
 
-# Create your views here.
+
+class Property(View):
+    template_name = 'pages/property.html'
+    
+    def get(self , request):
+        return render(request , self.template_name , locals())
+    
+    def post(self , request): 
+        pass
+    
