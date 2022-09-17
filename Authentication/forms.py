@@ -3,7 +3,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth import get_user_model
 
-from Property import models
+from Property.models import Properties
 
 class NewUserForm(UserCreationForm): 
     email = forms.EmailField()
@@ -17,7 +17,6 @@ class NewUserForm(UserCreationForm):
             "email",
             "password1",
             "password2",
-            "user_type" 
         )
         
 class LoginForm(forms.Form):
@@ -33,33 +32,26 @@ class UpdateProfile(ModelForm):
             "first_name" , 
             "last_name", 
             "username", 
-            "email", 
-            "country",
-            "city",
-            "occupation", 
+            "email",
+            "image",
             "phone_number",
         ]
     
 class AddProperty(ModelForm):
-    
     class Meta:
-        model = models.Properties
+        model = Properties
         fields = [
-            "name" ,
-            "price" ,
-            "status" ,
-            "property_type" ,
-            "city" ,
-            "country", 
-            "address", 
-            "garage" ,
-            "bathrooms", 
-            "bedrooms", 
-            "image", 
-            "additional_images" 
-    
+            'name', 
+            'price',
+            'property_type',
+            'bedroom',
+            'bathroom',
+            'garage',
+            'country',
+            'address_name',
+            'main_image', 
+            'users'
         ]
-    
 
     
 

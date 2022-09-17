@@ -1,51 +1,44 @@
-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 
+"""
+This class was created in order to verify: 
+    When was the user created.
+    Updated for everytime a user wants to make updates to his user.  
+    Inactive to verify if a user is still available or not.
+"""
 class InactiveRepeatFields(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     inactive = models.BooleanField(default=False)
     
+
+"""
+This class was created in order to verify: 
+    When was the user created.
+    Updated for everytime a user wants to make updates to his user.  
+"""
 class RepeatFields(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-class Country(RepeatFields): 
-    name = models.CharField(max_length=150)
-    
-    def __str__(self):
-        return self.name
-    
-class Cities(RepeatFields):
-    city = models.CharField(max_length=150)
-    countries = models.ForeignKey(Country , on_delete=models.SET_NULL, null= True , related_name="city_country")
-    
-    def __str__(self):
-        return self.city
+
+"""
+This class contains all information such as:
+    First name , Last Name , email , phone number , password , image , facebook id , instagram id , twitter id and linkedin id.
+"""
 
 class User(AbstractUser, InactiveRepeatFields): 
-    AGENT = 'AG'
-    CLIENT = 'CL'
-    
-    USER_TYPE = [
-        (AGENT , 'Agent'),
-        (CLIENT , 'Client')
-    ]
-
     image = models.ImageField(upload_to='User__Images', blank=True)
     phone_number = PhoneNumberField()
-    city = models.ForeignKey(Cities , on_delete=models.SET_NULL ,null=True , related_name="user_city")
-    country = models.ForeignKey(Country , on_delete=models.SET_NULL ,null=True , related_name="user_country")
-    description = models.TextField()
-    occupation = models.CharField(max_length=150)
-    user_type = models.CharField(choices=USER_TYPE , max_length=50)    
-    address = models.TextField()
     facebook = models.URLField()
     instagram = models.URLField()
     twitter = models.URLField()
     linkedin = models.URLField()
+    
+    def __str__(self):
+        return self.first_name
     
     
     

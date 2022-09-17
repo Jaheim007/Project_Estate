@@ -1,3 +1,16 @@
+Real Estate(Function)
+---------------------
+
+This real estate project will consist of an interaction where:
+
+A seller can sell a property.
+
+A user can search for a property to buy.
+
+
+
+I have to add a payment system for when a client want to purchase a property.[]
+
 Applications[]
 ****************
 

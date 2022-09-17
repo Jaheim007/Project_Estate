@@ -11,6 +11,6 @@ urlpatterns = [
     path('logout/' , logout_form, name='logout'),
     path("profile/" , profile , name='profile'),
     path("edit/" , edit_profile , name='edit' ),
-    path('add' , add_property , name='add' )
+    path("add_property/" , add_property , name="add_property")
 
 ]

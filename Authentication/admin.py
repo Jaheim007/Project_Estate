@@ -8,18 +8,10 @@ class User(admin.ModelAdmin):
         "last_name", 
         "username", 
         "email",
-        "user_type" 
+        "image" , 
+        "phone_number" , 
+        "facebook",
+        "instagram",
+        "twitter",
+        "linkedin", 
     )
-    
-@admin.register(models.Cities)
-class Cities(admin.ModelAdmin):
-        list_display = (
-            'countries',
-            'city',
-        )
-        
-@admin.register(models.Country)
-class Country(admin.ModelAdmin):
-        list_display = (
-            "name",
-        )
