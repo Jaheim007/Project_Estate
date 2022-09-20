@@ -50,7 +50,6 @@ class AddProperty(ModelForm):
             'country',
             'address_name',
             'main_image', 
-            'users'
         ]
 
     
