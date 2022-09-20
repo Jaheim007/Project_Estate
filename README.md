@@ -39,6 +39,8 @@ Models[]
 
 Front[x]
 
+Navagition bar as Anonymous: Properties , Buy , Sell , Contact Us , Sign In
+
 Navagition bar as Client: Home , Properties , Agents , About , Contact , Account , logout , View Properties 
 
 Navagition bar as Agents: Home , My Properties,  Request List , Add Properties , Logout

@@ -52,9 +52,10 @@
 
                                 <div class="main-menu d-none d-lg-block">
                                     <nav> 
-                                        <ul id="navigation">   
+                                        <ul id="navigation">  
+                                            <li><a href="{% url 'property' %}">Property</a></li>
                                             <li><a href="{% url 'property' %}">Buy</a></li>
-                                            <li><a href="{% url 'add_property' %}">Sell</a> </li>
+                                            <li><a href="#">Sell</a> </li>
                                             <li><a href="{% url 'about' %}">About</a></li>
                                             <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                         </ul>
@@ -70,9 +71,10 @@
 
                             <div class="main-menu d-none d-lg-block">
                                 <nav> 
-                                    <ul id="navigation">   
+                                    <ul id="navigation"> 
+                                        <li><a href="{% url 'property' %}">Property</a></li>  
                                         <li><a href="{% url 'property' %}">Buy</a></li>
-                                        <li><a href="{% url 'add_property' %}">Sell</a> </li>
+                                        <li><a href="#">Sell</a> </li>
                                         <li><a href="{% url 'about' %}">About</a></li>
                                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                     </ul>
@@ -81,7 +83,7 @@
                         </div>
                         <div class="header-right-btn f-right">
                             <!-- <a href="#" class="header-btn2">Call Us: <span>+10 (78) 356 3276</span></a> -->
-                            <a href="{% url 'loginform' %}" class="btn_1">Sign In</a>
+                            <a href="{% url 'login' %}" class="btn_1">Sign In</a>
                         </div>
 
                             {% endif %}
