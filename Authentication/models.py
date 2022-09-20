@@ -30,7 +30,7 @@ This class contains all information such as:
 """
 
 class User(AbstractUser, InactiveRepeatFields): 
-    image = models.ImageField(upload_to='User__Images', blank=True)
+    image = models.ImageField(upload_to='User__Images', default='https://cdn.pixabay.com/photo/2021/11/24/11/01/autumn-6820879__480.jpg' , blank=True)
     phone_number = PhoneNumberField(blank=True , region='CI')
     facebook = models.URLField(blank=True)
     instagram = models.URLField(blank=True)
