@@ -75,8 +75,6 @@ class About(View):
     def post(self , request):
         pass
 
-        
-    
 
 
 

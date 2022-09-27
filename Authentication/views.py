@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate, logout
 
 from Authentication import models
 from Authentication import forms 
+from Property import models
 
 
 class Login(View):
@@ -90,3 +91,37 @@ class Edit_Profile(View):
         return redirect("profile")
     
     
+class AddProperty(View):
+    template_name = 'pages/add_property.html'
+    add_form = forms.AddProperty
+    
+    def get(self , request):
+        form = self.add_form
+        return render(request , self.template_name , locals())
+    
+    def post(self , request):
+        if request.method =='POST':
+            name = request.POST.get("name")
+            price = request.POST.get("price")
+            users = request.user
+            
+        print(request.user)
+         
+        property = models.Properties(
+            name = name, 
+            price = price,
+            users = users
+        )
+        
+        property.save()
+    
+        return render(request , self.template_name , locals())
+      
+    
+    
+    
+
+    
+
+
+
