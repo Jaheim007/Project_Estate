@@ -23,11 +23,12 @@ class RepeatFields(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    
+
 """
 This class contains all information such as:
     First name , Last Name , email , phone number , password , image , facebook id , instagram id , twitter id and linkedin id.
 """
+
 class User(AbstractUser, InactiveRepeatFields): 
     image = models.ImageField(upload_to='User__Images', blank=True)
     phone_number = PhoneNumberField(region='CI',  blank=True)

@@ -67,4 +67,9 @@ class Migration(migrations.Migration):
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
         ),
+        migrations.AddField(
+            model_name='cities',
+            name='countries',
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='city_country', to='Authentication.country'),
+        ),
     ]
