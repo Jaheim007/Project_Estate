@@ -56,6 +56,7 @@
                                 <div class="main-menu d-none d-lg-block">
                                     <nav> 
                                         <ul id="navigation">  
+                                            <li><a href="{% url 'add' %}">Add Property</a></li>
                                             <li><a href="{% url 'property' %}">My Properties</a></li>
                                             <li><a href="{% url 'property' %}">Inbox</a></li>
                                             
@@ -97,67 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="header-bottom">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-xxl-8 col-xl-10 col-lg-11">
-                                <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="input-form">
-                                        <input type="text" placeholder="Enter Keyword..">
-                                        <!-- icon -->
-                                        <div class="icon">
-                                            <i class="ti-search"></i>
-                                        </div>
-                                    </div>
-                                    <div class="select-form">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Rent</option>
-                                                <option value="">Rent 1</option>
-                                                <option value="">Rent 2</option>
-                                                <option value="">Rent 3</option>
-                                                <option value="">Rent 4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="select-form select-form2">
-                                        <div class="select-itms">
-                                            <select name="select" id="select2">
-                                                <option value="">Bed</option>
-                                                <option value="">Bed 1</option>
-                                                <option value="">Bed 2</option>
-                                                <option value="">Bed 3</option>
-                                                <option value="">Bed 4</option>
-                                            </select>
-                                            <div class="select-items">
-                                                <img src="{% static 'assets/img/icon/bed.svg' %} " alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="select-form select-form2">
-                                        <div class="select-itms">
-                                            <select name="select" id="select3">
-                                                <option value="">Bath</option>
-                                                <option value="">Bath 1</option>
-                                                <option value="">Bath 2</option>
-                                                <option value="">Bath 3</option>
-                                                <option value="">Bath 4</option>
-                                            </select>
-                                        </div>
-                                        <div class="select-items">
-                                            <img src="{% static 'assets/img/icon/bath.svg' %} " alt="">
-                                        </div>
-                                    </div>
-                                    <div class="search-form">
-                                        <button>Search</button>
-                                    </div>		
-                                </form>	
-                                <!-- End Form -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+             
             </div>
         </div>
     </header>

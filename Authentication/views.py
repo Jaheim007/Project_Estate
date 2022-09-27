@@ -103,6 +103,11 @@ class AddProperty(View):
         if request.method =='POST':
             name = request.POST.get("name")
             price = request.POST.get("price")
+            property_type = request.POST.get("property_type")
+            bedroom = request.POST.get("bedroom")
+            bathroom = request.POST.get("bathroom")
+            garage = request.POST.get("garage")
+            main_image = request.POST.get("main_image")
             users = request.user
             
         print(request.user)
@@ -110,12 +115,17 @@ class AddProperty(View):
         property = models.Properties(
             name = name, 
             price = price,
+            property_type = property_type, 
+            bedroom = bedroom, 
+            bathroom = bathroom, 
+            garage = garage, 
+            main_image = main_image,
             users = users
         )
         
         property.save()
-    
-        return render(request , self.template_name , locals())
+
+        return redirect("add")
       
     
     

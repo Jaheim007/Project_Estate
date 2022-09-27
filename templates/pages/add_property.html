@@ -8,46 +8,85 @@
 
 {% if user.is_authenticated %}
 
+<div  style="background-image: url('https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287_1280.jpg'); background-repeat: no-repeat ; background-size: cover; "> 
+    <br><br><br>
 
-
-
-
-    <main class="login-bg">
-        <!-- login Area Start -->
-        <div class="login-form-area">
-            <div class="login-form">
-                <!-- Login Heading -->
-                <div class="login-heading">
-                    <span>Login</span>
-                    <p>Enter Login details</p>
-                </div>
-                <!-- Single Input Fields -->
-            <form method="POST">
-                {% csrf_token %}
-                <div class="input-box">
-                    <div class="single-input-fields">
-                        <label>Name</label>
-                        {% render_field form.name class="mt-4 form-control" placeholder="Name" %}
-                    </div>
-                    <div class="single-input-fields">
-                        <label>Price</label>
-                        {% render_field form.price class="mt-4 form-control" placeholder="CFA" %}
-                    </div>                    
-                    {% comment %} <div class="single-input-fields">
-                        <label>User</label>
-                        {% render_field form.users class="mt-4 form-control" placeholder="ID" %}
-                    </div>                     {% endcomment %}
-                </div>
-                <!-- form Footer -->
-                <br><br>
-                <div class="login-footer">
-                    <button type='submit' class="submit-btn3">Sumbit</button>
-                </div>
-            </form>
+    <div class="register-form-area">
+        <div class="register-form text-center">
+            <!-- Login Heading -->
+            <div class="register-heading">
+                <span>Add Your Property</span>
+                <p>Property Details</p>
             </div>
+
+            <!-- Single Input Fields -->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+
+                <div class="single-input-fields">
+                    <label>Property Title</label>
+                    {% render_field form.name class="mt-4 form-control"  %}
+                </div>
+                
+                <div class="single-input-fields">
+                    <label>Status</label>
+                    {% render_field form.property_type class="mt-4 form-control"  %}
+                </div>
+
+                <div class="single-input-fields">
+                    <label>Price</label>
+                    {% render_field form.price class="mt-4 form-control" placeholder='CFA' %}
+                </div>
+
+                <div class="single-input-fields">
+                    <label>Address</label>
+                    {% render_field form.address_name class="mt-4 form-control"  %}
+                </div>
+
+                <div class="single-input-fields">
+                    <label>Upload Image</label>
+                    {% render_field form.main_image class="mt-4 form-control"  %}
+                </div>
+
+                <div class="single-input-fields">
+                    <label>Rooms</label>
+                    {% render_field form.bedroom class="mt-4 form-control" %}
+                </div>
+
+                <div class="single-input-fields">
+                    <label>Bathrooms</label>
+                    {% render_field form.bathroom class="mt-4 form-control" placeholder='Enter Confirm Password' %}
+                </div>
+                
+                <div class="single-input-fields">
+                    <label>Garage</label>
+                    {% render_field form.garage class="mt-4 form-control" placeholder='Enter Confirm Password' %}
+                </div>
+
+
+            </div>
+
+            <br><br><br>
+            <div class="register-footer">
+                <button type="submit" class="submit-btn3">Submit Property</button>
+            </div>  
+        </form>
+            <!-- form Footer -->
+        
+      
         </div>
-        <!-- login Area End -->
-    </main>
+    </div>
+ 
+</div>
+</div>
+
+
+
+
+
+   
+    
     {% endif %}
 
 {% endblock 'content' %}
