@@ -1,4 +1,4 @@
-{% extends 'base/baselog.html' %}
+{% extends 'base/base.html' %}
 
 {% load static %}
 
@@ -12,7 +12,7 @@
             <div class="login-form">
                 <!-- Login Heading -->
                 <div class="login-heading">
-                    <span>Login</span>
+                    <span>Seller Login</span>
                     <p>Enter Login details</p>
                 </div>
                 <!-- Single Input Fields -->
@@ -35,7 +35,7 @@
                 </div>
                 <!-- form Footer -->
                 <div class="login-footer">
-                    <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a>  here</p>
+                    <p>Don't have an account? <a href="{% url 'register' %}">Sign Up as Seller</a>  here</p>
                     <button type='submit' class="submit-btn3">Login</button>
                 </div>
             </form>

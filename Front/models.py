@@ -45,3 +45,12 @@ class Contact_section(RepeatFields):
     title = models.CharField(max_length=150)
     description = models.TextField()
     
+class Contact(RepeatFields):
+    name = models.CharField(max_length=150)
+    email = models.EmailField(max_length=150)
+    subject = models.CharField(max_length=150)
+    message = models.TextField()
+    
+class Newsletters(RepeatFields):
+    email = models.EmailField()
+    

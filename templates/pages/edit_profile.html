@@ -1,4 +1,4 @@
-{% extends 'base/baselog.html' %}
+{% extends 'base/base.html' %}
 
 {% load static %}
 
@@ -12,10 +12,10 @@
         <div class="register-form text-center">
             <!-- Login Heading -->
             <div class="register-heading">
-                <span>Update Information</span>
-                <p>User Details</p>
+                <span>Edit User Profile</span>
+                <p>User Informations</p>
             </div>
-
+        
             <!-- Single Input Fields -->
         <form method="POST">
             {% csrf_token %}
@@ -37,18 +37,8 @@
                 </div>
 
                 <div class="single-input-fields">
-                    <label>Email Address</label>
-                    {% render_field form.email class="mt-4 form-control" placeholder='Enter Email Address' %}
-                </div>
-
-                <div class="single-input-fields">
-                    <label>Country</label>
-                    {% render_field form.country class="mt-4 form-control" placeholder='Choose Country' %}
-                </div>
-
-                <div class="single-input-fields">
-                    <label>City</label>
-                    {% render_field form.city class="mt-4 form-control" placeholder='Choose City' %}
+                    <label>Change image</label>
+                    {% render_field form.image class="mt-4 form-control" placeholder='Choose Image' %}
                 </div>
 
                 <div class="single-input-fields">
@@ -58,9 +48,8 @@
 
             </div>
 
-            
             <div class="register-footer">
-                <button type="submit" class="submit-btn3">Update Profile</button>
+                <button type="submit" class="submit-btn3">Submit</button>
             </div>  
         </form>
             <!-- form Footer -->

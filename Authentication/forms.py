@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm 
@@ -35,6 +36,17 @@ class UpdateProfile(ModelForm):
             "email",
             "image",
             "phone_number",
+        ]
+        
+class EditProfile(ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = [
+            "first_name" , 
+            "last_name", 
+            "username", 
+            "phone_number",
+            "image",
         ]
     
 class AddProperty(ModelForm):

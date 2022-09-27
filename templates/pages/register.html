@@ -51,16 +51,12 @@
                         {% render_field form.password2 class="mt-4 form-control" placeholder='Enter Confirm Password' %}
                     </div>
 
-                    <div class="single-input-fields">
-                        <label>Register as</label>
-                        {% render_field form.user_type class="mt-4 form-control" %}
-                    </div>
 
                 </div>
 
                 <br><br><br>
                 <div class="register-footer">
-                    <p> Already have an account? <a href="{% url 'loginform' %}"> Login</a> here</p>
+                    <p> Already have an account? <a href="{% url 'login' %}"> Login</a> here</p>
                     <button type="submit" class="submit-btn3">Sign Up</button>
                 </div>  
             </form>

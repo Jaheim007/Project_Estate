@@ -56,7 +56,7 @@ class Register(View):
         user.save()
         
         return redirect("/login")
-        return render(request , "pages/register.html" , locals())
+
         
 class Logout(View):
     
@@ -75,12 +75,18 @@ class Profile(View):
     
 class Edit_Profile(View):
     template_name = 'pages/edit_profile.html'
+    class_form = forms.EditProfile
     
     def get(self, request):
-        form = forms.UpdateProfile(instance=request.user)
+        form = self.class_form(instance=request.user)
         return render(request , self.template_name , locals())
     
     def post(self , request):
-        pass
+        form = self.class_form(request.POST, instance=request.user)
+        
+        if form.is_valid():
+            form.save()
+            return redirect("edit_profile")
+        return redirect("profile")
     
     
