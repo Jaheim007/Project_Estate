@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import View
 
+from Property import models
+
 
 class Property(View):
     template_name = 'pages/property.html'
     
     def get(self , request):
+        properties = models.Properties.objects.all()
         return render(request , self.template_name , locals())
     
     def post(self , request): 

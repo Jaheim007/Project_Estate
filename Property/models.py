@@ -19,11 +19,6 @@ class AdditionalPropertyImage(RepeatFields):
     def __str__(self):
         return self.image1
 
-class Countries(RepeatFields):
-    country = models.CharField(max_length=150)
-    
-    def __str__(self):
-        return self.country
 
 class Bedrooms(RepeatFields):
     number = models.CharField(max_length=150)
@@ -43,7 +38,13 @@ class Garages(RepeatFields):
     def __str__(self):
         return self.number
     
-class PropertyTypes(RepeatFields):
+class TypeProperty(RepeatFields):    
+    property_type = models.CharField(max_length=254)
+    
+    def __str__(self):
+        return self.property_type
+
+class Properties(InactiveProperties):
     FOR_SALE = "FOR SALE"
     FOR_RENT = "FOR RENT"
     
@@ -52,20 +53,15 @@ class PropertyTypes(RepeatFields):
         (FOR_RENT , "For Rent")
     ]
     
-    type = models.CharField(choices=TYPE , max_length=150)
-    
-    def __str__(self):
-        return self.type
-
-class Properties(InactiveProperties):
     name = models.CharField(max_length=150)
     price = models.CharField(max_length=150)
-    property_type = models.ForeignKey(PropertyTypes ,  on_delete=models.SET_NULL , null=True , related_name="properties_property_type")
+    status  = models.CharField(choices=TYPE , max_length=150)
     bedroom = models.ForeignKey(Bedrooms, on_delete=models.SET_NULL , null=True , related_name="properties_bedrooms")
     bathroom = models.ForeignKey(Bathrooms, on_delete=models.SET_NULL , null=True , related_name="properties_bathrooms")
     garage = models.ForeignKey(Garages, on_delete=models.SET_NULL , null=True , related_name="properties_garages")
-    country = models.ForeignKey(Countries, on_delete=models.SET_NULL ,null=True, related_name='properties_country')
-    address_name = models.CharField(max_length=150)
+    address_name = models.CharField(max_length=254)
+    property_type = models.ForeignKey(TypeProperty , on_delete=models.SET_NULL , null=True , related_name = "type_property")
+    description = models.TextField()
     main_image = models.ImageField(upload_to='Property_images')
     users = models.ForeignKey(get_user_model() , on_delete=models.SET_NULL , null=True , related_name='property_user_id')
     

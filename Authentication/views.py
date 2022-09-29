@@ -2,6 +2,9 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render , redirect
 from django.views.generic import View
 from django.contrib.auth import login, authenticate, logout
+from django.core.mail import send_mail
+from django.contrib.auth.forms import SetPasswordForm , PasswordResetForm
+
 
 from Authentication import models
 from Authentication import forms 
@@ -55,7 +58,15 @@ class Register(View):
         )
 
         user.save()
-        
+
+        send_mail(
+                "Konato Account",
+                "Your seller's account was created with success. ",
+                'jaheimkouaho@gmail.com',
+                [email],
+                fail_silently=False
+        )
+
         return redirect("/login")
 
         
@@ -100,25 +111,34 @@ class AddProperty(View):
         return render(request , self.template_name , locals())
     
     def post(self , request):
-        if request.method =='POST':
-            name = request.POST.get("name")
-            price = request.POST.get("price")
-            property_type = request.POST.get("property_type")
-            bedroom = request.POST.get("bedroom")
-            bathroom = request.POST.get("bathroom")
-            garage = request.POST.get("garage")
-            main_image = request.POST.get("main_image")
-            users = request.user
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        status = request.POST.get('status')
+        address_name = request.POST.get('address_name')
+        property_type = request.POST.get('property_type')
+        description = request.POST.get('description')
+        bedroom = request.POST.get("bedroom")
+        bathroom = request.POST.get("bathroom")
+        garage = request.POST.get("garage")
+        main_image = request.POST.get("main_image")
+        users = request.user
+        
+        instance_bedroom = models.Bedrooms.objects.get(pk=bedroom)
+        instance_bathroom = models.Bathrooms.objects.get(pk=bathroom)
+        instance_garage = models.Garages.objects.get(pk=garage)
+        instance_type_property = models.TypeProperty.objects.get(pk=property_type)
             
-        print(request.user)
          
         property = models.Properties(
             name = name, 
             price = price,
-            property_type =  property_type, 
-            bedroom = bedroom, 
-            bathroom = bathroom, 
-            garage = garage, 
+            status = status,
+            address_name = address_name,
+            property_type = instance_type_property,
+            description = description , 
+            bedroom = instance_bedroom, 
+            bathroom = instance_bathroom, 
+            garage = instance_garage, 
             main_image = main_image,
             users = users
         )
@@ -127,6 +147,44 @@ class AddProperty(View):
 
         return redirect("add")
       
+class PasswordChange(View):
+    template_name = 'pages/password_change.html'
+    
+    def get(self , request):
+        user = request.user
+        form = forms.ChangePassword(user)
+        return render(request , self.template_name , locals())
+    
+    def post(self , request):
+        user = request.user
+        form = SetPasswordForm(user, request.POST)
+        if form.is_valid():
+            form.save()
+            print('password changed')
+            return redirect('login')
+        else:
+            for error in list(form.errors.values()):        
+                print('password not change')
+
+        form = SetPasswordForm(user)
+        return render(request , self.template_name , locals())      
+    
+class PasswordReset(View):
+    template_name = 'pages/password_reset.html'
+    
+    def get(self , request):
+        form = PasswordResetForm()
+        return render(request , self.template_name , locals())
+    
+    def post(self , request):
+        pass
+    
+class PasswordResetConfirm(View):
+    
+    def get(request):
+        return redirect("home")
+    
+    
     
     
     

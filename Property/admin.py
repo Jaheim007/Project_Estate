@@ -2,11 +2,7 @@ from django.contrib import admin
 
 from Property import models
 
-@admin.register(models.Countries)
-class Countries(admin.ModelAdmin):
-    list_display = (
-        'country',
-    )
+
 @admin.register(models.Bathrooms)
 class Bathrooms(admin.ModelAdmin):
     list_display = (
@@ -25,10 +21,10 @@ class Garages(admin.ModelAdmin):
         'number',
     )
 
-@admin.register(models.PropertyTypes)
-class PropertyTypes(admin.ModelAdmin):
+@admin.register(models.TypeProperty)
+class TypeProperty(admin.ModelAdmin):
     list_display = (
-        type,
+        'property_type',
     )
 
 @admin.register(models.Properties)
@@ -36,12 +32,13 @@ class Properties(admin.ModelAdmin):
     list_display = (
         'name', 
         'price',
-        'property_type',
+        'status',
         'bedroom',
         'bathroom',
         'garage',
-        'country',
+        'description',
+        'property_type',
         'address_name',
         'main_image',
-        'users'
+        'users' 
     )

@@ -1,8 +1,10 @@
 from dataclasses import fields
 from django import forms
 from django.forms import ModelForm
-from django.contrib.auth.forms import UserCreationForm 
+from django.contrib.auth.forms import UserCreationForm, SetPasswordForm , PasswordResetForm
 from django.contrib.auth import get_user_model
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Checkbox
 
 from Property.models import Properties
 
@@ -55,15 +57,23 @@ class AddProperty(ModelForm):
         fields = [
             'name', 
             'price',
+            'status',
             'property_type',
             'bedroom',
             'bathroom',
             'garage',
-            'country',
             'address_name',
-            'main_image', 
+            'description',
+            'main_image'
         ]
-
+        
+class ChangePassword(SetPasswordForm):
+    class Meta:
+        model = get_user_model()
+        fields = [
+            'new_password1', 
+            'new_password2'
+        ]
     
 
         

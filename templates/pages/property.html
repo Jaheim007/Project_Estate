@@ -14,7 +14,7 @@
                             <!-- Hero Caption -->
                             <div class="hero-caption hero-caption2">
                                 <h1>Available Property</h1>
-                                <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
+                                <p>Get started by choosing from one of our Properties</p>
                             </div>
                         </div>
                     </div>
@@ -29,10 +29,11 @@
                     <div class="col-xl-6">
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-50 text-center ">
-                            <h2>Properties for Sale</h2>
+                            <h2>Properties</h2>
                         </div>
                     </div>
                 </div>
+                {% for property in properties %}
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <div class="single-cat single-cat2 mb-30">
@@ -41,167 +42,28 @@
                             </div>
                             <div class="cat-cap">
                                 <div class="cap-top">
-                                    <span>$ 6728</span>
+                                    <span>XOF {{property.price}}</span>
                                     <h5><a href="#">Appartment</a></h5>
                                     <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
                                 </div>
                                 <div class="pricing d-flex justify-content-between align-items-center">
                                     <div class="single">
                                         <img src="{% static 'assets/img/icon/bed.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
+                                        <span>{{property.bedroom}} Bedroom</span>
                                     </div>
                                     <div class="single">
                                         <img src="{% static 'assets/img/icon/bath.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
+                                        <span>{{property.bathroom}} Bathroom</span>
                                     </div>
                                     <div class="single">
-                                        <img src="{% static 'assets/img/icon/building.svg'  %} " alt="">
-                                        <span>1050 Sq Ft</span>
+                                        <img src="{% static 'assets/img/icon/icons8-garage-32.png'  %} " alt="">
+                                        <span>{{property.garage}} Garage</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="single-cat single-cat2 mb-30">
-                            <div class="cat-img">
-                                <img src="{% static 'assets/img/gallery/items2.jpg'  %} " alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <div class="cap-top">
-                                    <span>$ 6728</span>
-                                    <h5><a href="#">Office</a></h5>
-                                    <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
-                                </div>
-                                <div class="pricing d-flex justify-content-between align-items-center">
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bed.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bath.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/building.svg'  %} " alt="">
-                                        <span>1050 Sq Ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="single-cat single-cat2 mb-30">
-                            <div class="cat-img">
-                                <img src="{% static 'assets/img/gallery/items1.jpg'  %} " alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <div class="cap-top">
-                                    <span>$ 6728</span>
-                                    <h5><a href="#">Classic home</a></h5>
-                                    <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
-                                </div>
-                                <div class="pricing d-flex justify-content-between align-items-center">
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bed.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bath.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/building.svg'  %} " alt="">
-                                        <span>1050 Sq Ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="single-cat single-cat2 mb-30">
-                            <div class="cat-img">
-                                <img src="{% static 'assets/img/gallery/items1.jpg'  %} " alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <div class="cap-top">
-                                    <span>$ 6728</span>
-                                    <h5><a href="#">Appartment</a></h5>
-                                    <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
-                                </div>
-                                <div class="pricing d-flex justify-content-between align-items-center">
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bed.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bath.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/building.svg'  %} " alt="">
-                                        <span>1050 Sq Ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="single-cat single-cat2 mb-30">
-                            <div class="cat-img">
-                                <img src="{% static 'assets/img/gallery/items2.jpg'  %} " alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <div class="cap-top">
-                                    <span>$ 6728</span>
-                                    <h5><a href="#">Office</a></h5>
-                                    <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
-                                </div>
-                                <div class="pricing d-flex justify-content-between align-items-center">
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bed.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bath.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/building.svg'  %} " alt="">
-                                        <span>1050 Sq Ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="single-cat single-cat2 mb-30">
-                            <div class="cat-img">
-                                <img src="{% static 'assets/img/gallery/items1.jpg'  %} " alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <div class="cap-top">
-                                    <span>$ 6728</span>
-                                    <h5><a href="#">Classic home</a></h5>
-                                    <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
-                                </div>
-                                <div class="pricing d-flex justify-content-between align-items-center">
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bed.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/bath.svg'  %} " alt="">
-                                        <span>2 Bedroom</span>
-                                    </div>
-                                    <div class="single">
-                                        <img src="{% static 'assets/img/icon/building.svg'  %} " alt="">
-                                        <span>1050 Sq Ft</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -212,10 +74,13 @@
             <!-- left Contents -->
             <div class="tailor-details">
                 <h2>Subscribe Newsletter</h2>
-                <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
+                <p>Subscribe to our Newsletter for latest informations on new properties etc.</p>
                 <div class="subscribe-now">
-                    <input type="text" placeholder="Enter your email">
-                    <button class="submit-btn2">Subscribe</button>
+                    <form id="newsletters" method="POST">
+                        {% csrf_token %}
+                        <input type="email" v-model="email" placeholder="Enter your email">
+                        <button @click.prevent="post_data" class="submit-btn2">Subscribe</button>
+                    </form>
                 </div>
             </div>
             <!--Right Contents  -->

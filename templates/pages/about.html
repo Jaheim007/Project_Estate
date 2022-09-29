@@ -38,7 +38,7 @@
                                 <p class="mb-50">Rhoncus est pellen tesque elit ullam corper dignissim cras
                                 tincidunt lobortis feugiat. Et netus malesuada fames.</p>
                             </div>
-                            <a href="#" class="btn">View All Property</a>
+                            <a href="{% url 'property' %}" class="btn">View All Property</a>
                         </div>
                     </div>
                     <div class="offset-xxl-1 col-xxl-5 col-xl-5 col-lg-6 col-md-8">
@@ -113,10 +113,13 @@
     <!-- left Contents -->
     <div class="tailor-details">
         <h2>Subscribe Newsletter</h2>
-        <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
+        <p>Subscribe to our Newsletter for latest informations on new properties etc.</p>
         <div class="subscribe-now">
-            <input type="text" placeholder="Enter your email">
-            <button class="submit-btn2">Subscribe</button>
+            <form id="newsletters" method="POST">
+                {% csrf_token %}
+                <input type="email" v-model="email" placeholder="Enter your email">
+                <button @click.prevent="post_data" class="submit-btn2">Subscribe</button>
+            </form>
         </div>
     </div>
     <!--Right Contents  -->
