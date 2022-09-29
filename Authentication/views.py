@@ -115,7 +115,7 @@ class AddProperty(View):
         property = models.Properties(
             name = name, 
             price = price,
-            property_type = property_type, 
+            property_type =  property_type, 
             bedroom = bedroom, 
             bathroom = bathroom, 
             garage = garage, 
