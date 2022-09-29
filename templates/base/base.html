@@ -62,7 +62,7 @@
                                     <nav> 
                                         <ul id="navigation">  
                                             <li><a href="{% url 'add' %}">Add Property</a></li>
-                                            <li><a href="{% url 'property' %}">My Properties</a></li>
+                                            <li><a href="{% url 'myproperty' %}">My Properties</a></li>
                                             
                                         </ul>
                                     </nav>
@@ -188,7 +188,7 @@
                           })
                     }
                     else{
-                        console.log(this.appointment_date)
+
                       
                         axios.defaults.xsrfHeaderName = 'X-CSRFToken'
                         axios.defaults.xsrfCookieName = 'csrftoken'
@@ -274,6 +274,8 @@
             delimiters: ['%{', '}']
         })
       </script>
+
+     
     
     
 </body>

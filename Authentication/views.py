@@ -28,7 +28,7 @@ class Login(View):
             )
         if user:
             login(request, user)
-            return redirect("/") 
+            return redirect("myproperty") 
         
         return render(request , "pages/login.html" , locals())
         
@@ -111,6 +111,9 @@ class AddProperty(View):
         return render(request , self.template_name , locals())
     
     def post(self , request):
+        msg =''
+        success = True
+        
         name = request.POST.get("name")
         price = request.POST.get("price")
         status = request.POST.get('status')
@@ -144,8 +147,15 @@ class AddProperty(View):
         )
         
         property.save()
-
-        return redirect("add")
+        
+        msg = 'Your email has been saved, we will keep you updated on our latest info.'
+        
+        data = {
+        'msg': msg,
+        'success': success
+        }
+        
+        return redirect("myproperty")
       
 class PasswordChange(View):
     template_name = 'pages/password_change.html'

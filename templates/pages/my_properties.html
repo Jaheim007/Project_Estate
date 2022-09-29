@@ -4,6 +4,7 @@
 
 {% block 'content' %}
 
+{% if user.is_authenticated %}
     <main>
         <!-- Hero Area Start-->
         <div class="slider-area">
@@ -13,8 +14,7 @@
                         <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-10">
                             <!-- Hero Caption -->
                             <div class="hero-caption hero-caption2">
-                                <h1>Available Property</h1>
-                                <p>Get started by choosing from one of our Properties</p>
+                                <h1>Properties Added</h1>                                
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="col-xl-6">
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-50 text-center ">
-                            <h2>Properties</h2>
+                            <h2>My Properties</h2>
                         </div>
                     </div>
                 </div>
@@ -67,25 +67,6 @@
                 </div>
             </div>
         </section>
-        <!-- latest-items End -->
+    {% endif %}
 
-        <!-- subscribe Area Start-->
-        <div class="visit-tailor-area fix">
-            <!-- left Contents -->
-            <div class="tailor-details">
-                <h2>Subscribe Newsletter</h2>
-                <p>Subscribe to our Newsletter for latest informations on new properties etc.</p>
-                <div class="subscribe-now">
-                    <form id="newsletters" method="POST">
-                        {% csrf_token %}
-                        <input type="email" v-model="email" placeholder="Enter your email">
-                        <button @click.prevent="post_data" class="submit-btn2">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <!--Right Contents  -->
-            <div class="tailor-offers"></div>
-        </div>
-        <!-- subscribe Area End-->
-    </main>
-   {% endblock 'content' %}
+{% endblock 'content' %}

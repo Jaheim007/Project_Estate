@@ -3,12 +3,14 @@ from django.views.generic import View
 from django.http import JsonResponse
 
 from Front import models
+from Property import models
 
 
 class Home(View):
     template_name = 'pages/index.html'
     
     def get(self , request):
+        properties = models.Properties.objects.all()
         return render(request , self.template_name , locals())
     
     def post(self , request): 
