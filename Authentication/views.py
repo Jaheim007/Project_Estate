@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render , redirect
 from django.views.generic import View
 from django.contrib.auth import login, authenticate, logout
+from django.core.mail import send_mail
 
 from Authentication import models
 from Authentication import forms 
@@ -55,7 +56,15 @@ class Register(View):
         )
 
         user.save()
-        
+
+        send_mail(
+                "Konato Account",
+                "Your seller's account was created with success. ",
+                'jaheimkouaho@gmail.com',
+                [email],
+                fail_silently=False
+        )
+
         return redirect("/login")
 
         

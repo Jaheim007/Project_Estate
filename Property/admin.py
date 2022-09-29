@@ -28,7 +28,7 @@ class Garages(admin.ModelAdmin):
 @admin.register(models.PropertyTypes)
 class PropertyTypes(admin.ModelAdmin):
     list_display = (
-        type,
+        'type',
     )
 
 @admin.register(models.Properties)
@@ -43,5 +43,5 @@ class Properties(admin.ModelAdmin):
         'country',
         'address_name',
         'main_image',
-        'users'
+        'users' 
     )
