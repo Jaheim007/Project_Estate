@@ -3,8 +3,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, SetPasswordForm , PasswordResetForm
 from django.contrib.auth import get_user_model
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Checkbox
+
 
 from Property.models import Properties
 
