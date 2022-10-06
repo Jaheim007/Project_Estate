@@ -27,7 +27,7 @@ class MyProperty(View):
     template_name = 'pages/my_properties.html'
     
     def get(self , request):
-        properties = models.Properties.objects.all()
+        # properties = models.Properties.objects.all()
         return render(request , self.template_name , locals())
     
     def post(self , request): 

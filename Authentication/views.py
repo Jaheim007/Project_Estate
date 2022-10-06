@@ -68,7 +68,11 @@ class Register(View):
         )
 
         return redirect("/login")
+ 
+    
 
+
+    
         
 class Logout(View):
     
@@ -94,7 +98,9 @@ class Edit_Profile(View):
         return render(request , self.template_name , locals())
     
     def post(self , request):
-        form = self.class_form(request.POST, instance=request.user)
+        form = self.class_form(request.POST, request.FILES, instance=request.user)
+        print(request.POST)
+        print(request.FILES)
         
         if form.is_valid():
             form.save()
@@ -177,7 +183,8 @@ class PasswordChange(View):
                 print('password not change')
 
         form = SetPasswordForm(user)
-        return render(request , self.template_name , locals())      
+        return render(request , self.template_name , locals()) 
+         
     
 class PasswordReset(View):
     template_name = 'pages/password_reset.html'

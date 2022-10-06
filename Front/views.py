@@ -44,11 +44,11 @@ class Contact(View):
     def post(self , request):
         msg =''
         success = True
-        if request.method == "POST":
-            name = request.POST.get("name")
-            email = request.POST.get("email")
-            subject = request.POST.get("subject")
-            message = request.POST.get("message")
+
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
         
         contact = models.Contact(
             name = name, 
